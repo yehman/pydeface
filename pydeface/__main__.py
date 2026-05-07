@@ -94,6 +94,25 @@ def main():
     )
 
     parser.add_argument(
+        '--bet',
+        action='store_true',
+        help='Skull-strip images before registration. Brain-to-brain registrations can sometimes overcome issues caused by neck and face.'
+    )
+
+    parser.add_argument(
+        '--auto-bet',
+        action='store_true',
+        help='Automatically check registration quality and use skull-stripped method if it fails.'
+    )
+
+    parser.add_argument(
+        '--qc-threshold',
+        type=float,
+        default=0.2,
+        help='Threshold for NMI QC. If --auto-bet is used and score is below this, triggers skull-stripped method. (Default: 0.2)'
+    )
+
+    parser.add_argument(
         '--facemask',
         metavar='path',
         required=False,
