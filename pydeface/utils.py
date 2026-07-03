@@ -209,6 +209,7 @@ def deface_image(
     flirt.inputs.out_file = warped_mask
     flirt.inputs.output_type = outfile_type
     flirt.inputs.out_matrix_file = warped_mask_mat
+    flirt.inputs.interp = 'nearestneighbour'
     flirt.run()
 
     # multiply mask by infile and save
